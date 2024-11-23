@@ -1,0 +1,71 @@
+@use "./mixins" as *;
+@use "./utils" as *;
+@use "./variables" as *;
+
+html {
+  background: #010100;
+}
+
+.image-wrapper {
+  background-image: linear-gradient(to bottom, #000, rgba(0, 0, 0, 0.4) 10%),
+    linear-gradient(to top, #000, rgba(0, 0, 0, 0) 20%), url(/banner.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 60vh;
+  position: absolute;
+  width: 100%;
+}
+
+.padded-section {
+  display: grid;
+  place-items: center;
+  padding: 15rem 1.5rem;
+}
+
+.section-content {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  position: relative;
+
+  h2 {
+    margin-bottom: 0.5em;
+  }
+
+  @include for("desktop-up") {
+    max-width: $width-xxl;
+  }
+}
+
+@include for("desktop-up") {
+  .padded-section:not(:last-child) {
+    .section-content:not(.intro-section) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &:nth-child(even) > .section-content > div:first-child {
+      order: 2;
+    }
+  }
+}
+
+.gap {
+  padding-top: 5rem;
+}
+
+.intro-section {
+  @include for("desktop-up") {
+    max-width: 65ch;
+  }
+}
+
+.btn-land {
+  padding: 0.5em 1em;
+  border: none;
+  background-color: var(--color-green);
+  border-radius: $border-radius-1;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 5px;
+}

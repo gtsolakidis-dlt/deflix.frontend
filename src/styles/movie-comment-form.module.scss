@@ -1,0 +1,25 @@
+@use "mixins" as *;
+@use "variables" as *;
+
+.comment-area {
+  font-size: var(--font-size--1);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+
+  textarea {
+    height: 50px;
+    flex: 1;
+  }
+  .btn-post {
+    background-color: var(--color-green);
+    padding: 0.4rem 1.5rem 0.4rem 1rem;
+    border: none;
+    border-radius: $border-radius-1;
+    // @include for("tablet-up") {
+    //   flex: 1;
+    // }
+  }
+}

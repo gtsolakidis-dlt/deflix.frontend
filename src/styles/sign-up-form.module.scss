@@ -1,0 +1,64 @@
+@use "./mixins" as *;
+@use "./utils" as *;
+@use "./variables" as *;
+
+/* Form */
+.form {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #1e2b37cc;
+    color: var(--color-primary);
+    border: none;
+    font-size: var(--font-size-0);
+    border-radius: $border-radius-1;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    position: relative;
+    background-color: var(--color-green);
+    padding: 0.4rem 1.5rem 0.4rem 1rem;
+    border: none;
+    border-radius: $border-radius-1;
+
+    @include for("tablet-up") {
+      font-size: var(--font-size-0);
+    }
+  }
+
+  .text {
+    font-size: var(--font-size-0);
+
+    & span {
+      font-weight: bold;
+      color: var(--color-green-trans);
+      cursor: pointer;
+      &:hover {
+        color: var(--color-green);
+      }
+    }
+  }
+
+  .error {
+    color: var(--color-accent);
+    font-size: var(--font-size-0);
+  }
+}
+
+.background-panel {
+  width: 100%;
+  padding: 8vh;
+  background-color: #00000070;
+  @include for("tablet-up") {
+    width: 450px;
+  }
+}
